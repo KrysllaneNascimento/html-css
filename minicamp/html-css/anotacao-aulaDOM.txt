@@ -1,0 +1,12 @@
+DOM
+Document Object Model
+Modelo de Objeto de documento
+Estrutura hierarquica de conteudo HTML
+É possivel manipular o DOM e CSS com javaScript
+document.querySelector - seletor de um unico elemento(tag,class,id)
+document.querySelectorAll- seletor de n elementos
+document.createElement- criação de elementos
+appendChild - inserção de filhos
+addEventListener - inclusao de um "escutador" de evento(quando)
+classList.add - inclusao de classe CSS
+classList.remove - exclusão de classe CSS.

@@ -1,0 +1,26 @@
+<html>
+    <script>
+        // var nomes = ['Joao', 'Maria', 'Paulo', 'Jose','Ana', 'Jorge', 'Moises']
+        // i = 0
+        // while(i < nomes.length){
+        //     console.log(nomes[i])
+        //     i++
+        // }
+        function primo(num){
+            cont = 0
+            tot = 0
+            while(cont <= num){
+                if (num % cont == 0){
+                    tot ++
+                }
+                cont++
+            }
+            if (tot > 2){
+                console.log(num, 'não é primo !')
+            }
+            else{
+                console.log(num, 'é primo !')
+            }
+        }
+    </script>
+</html>
