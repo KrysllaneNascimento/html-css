@@ -192,7 +192,7 @@ h2{
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, #de3de1 23%, #00ffff 100%);
-  background-image:url(pyth.png) ;
+  background-image:url(imagens/pyth.png) ;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -233,7 +233,7 @@ h2{
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, #de3de1 23%, #00ffff 100%);
-  background-image:url(html.png) ;
+  background-image:url(imagens/html.png) ;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -272,7 +272,7 @@ h2{
   justify-content: center;
   background-color: linear-gradient(to right, #de3de1 23%, #00ffff 100%);
   background-position: center;
-  background-image:url(logocss.png);
+  background-image:url(imagens/logocss.png);
   background-size: cover;
   background-repeat: no-repeat;
   filter: grayscale(0.5);
@@ -311,7 +311,7 @@ h2{
   justify-content: center;
   background-color: linear-gradient(to right, #de3de1 23%, #00ffff 100%);
   background-position: center;
-  background-image:url(js.png);
+  background-image:url(imagens/js.png);
   background-size: cover;
   background-repeat: no-repeat;
   filter: grayscale(0.5);
