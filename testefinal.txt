@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <header id="header" class="navbar-fixed-top">
+        <div class="row barra-cor">
+            <div class="col-xs-2" style="background-color: rgb(0, 188, 212);"></div>
+            <div class="col-xs-1" style="background-color: rgb(206, 207, 212);"></div>
+            <div class="col-xs-1" style="background-color: rgb(255, 214, 0);"></div>
+            <div class="col-xs-2" style="background-color: rgb(255, 196, 0);"></div>
+            <div class="col-xs-2" style="background-color: rgb(255, 172, 0);"></div>
+            <div class="col-xs-1" style="background-color: rgb(255, 145, 0);"></div>
+            <div class="col-xs-1" style="background-color: rgb(255, 109, 0);"></div>
+            <div class="col-xs-2" style="background-color: rgb(247, 0, 0);"></div>
+        </div>
+        <div class="conteiner">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5">
+                    <a href="#" class="navbar-brand light-logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <nav role="navigation" id="js-navbar-menu" class="pull-right-loaded">
+                    <ul id="navbar-nav" class="okayNav__nav--visible"></ul>
+                    <ul class="okayNav__nav--invisible nav-right" style="transform:translateX(100%);">
+                        <li>
+                            <a href="#" class="btn-nav btn-scroll">
+                                <font style="vertical-align:inherit;">
+                                    <font style="vertical-align:inherit;">NOME SITE</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-nav btn-scroll">
+                                <font style="vertical-align:inherit;">
+                                    <font style="vertical-align:inherit;">Contato</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-nav btn-scroll">
+                                <font style="vertical-align:inherit;">
+                                    <font style="vertical-align:inherit;">Conecte-se</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="okayNay__menu-toggle"></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+</body>
+</html>
