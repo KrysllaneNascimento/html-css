@@ -4,52 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star tow</title>
+    <title>PyCar</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <section>
-        <div class="circle"></div>
-        <!-- <header>
-            <a href="#"><img src="logo.png"  class="logo"></a>
+<a href="#" class="btn"></a>
+</section>
+        <header>
+        <nav id='menu'>
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">What's New</a></li>
-                <li><a href="#">Contact</a></li>
+            <li><a href="#anchor"><b>Sobre nós</b></a></li>
+            <li><a href="#login"><b>Login</b></a></li>
+            <li><a href="#contato"><b>Contatos</b></a></li>
             </ul>
-        </header> -->
-        <div class="content">
-            <div class="textBox">
-                <h2>Cuide do seu carro com <br>O <span>Drive</span></h2>
-                <p>Cadastre, organize e descubra tudo a respeito <br> do seu carro, moto, caminhão ou ônibus. <br> Esteja onde você estiver, através do celular ou tablet. <br> Queremos o melhor para o seu veículo e, principalmente, para </p>
-                <a href="#">Cadastre-se</a>
-            </div>
-            <div class="imgBox">
-                <img src="img1.png" class="starbucks">
-            </div>
-        </div>
-        <ul class="thumb">
-            <li><img src="thumb1.png" onclick="imgSlider('img1.png');changeCircleColor('#2C4B7A')"></li>
-            <li><img src="thumb2.png" onclick="imgSlider('img2.png');changeCircleColor('#eb7495')"></li>
-            <li><img src="thumb3.png" onclick="imgSlider('img3.png');changeCircleColor('#d752b1')"></li>
-        </ul>
-        <ul class="sci">
-            <li><a href="#"><img src="facebook.png"></a></li>
-            <li><a href="#"><img src="twitter.png"></a></li>
-            <li><a href="#"><img src="instagram.png"></a></li>
-        </ul>
-    </section>
-    <script type="text/javascript">
-        function imgSlider(anything){
-            document.querySelector('.starbucks').src = anything;
+        </nav>
+    </header>
 
-        }
-        function changeCircleColor(color){
-            const circle = document.querySelector('.circle');
-            circle.style.background = color;
-        }
-    </script>
-    
+    <!-- banner -->
+    <section class="banner">
+        <img src="logo.png">
+        <h1>PyCar</h1>
+    </section> 
+    <div id="anchor"></div><h2>VOCÊ NO CONTOLE</h2>
+    <h5><b>O Drive é o site ideal para você que se preocupa com <br> a gestão de custos do seu veículo.</b></h5>
+
+    <div class="container">
+        <div class="img"><img src="check.png" alt=""><h1>Controle seus gastos</h1>
+            <p>Registre todos os abastecimentos, despesas, receitas e serviços do seu veículo.</p></div>
+        <div class="img"><img src="lembrete.png" alt=""><h1>Seja avisado</h1>
+            <p>Programe lembretes e não deixaremos você esquecer revisões, manutenções e pagamentos.</p></div>
+        <div class="img"><img src="car.png" alt=""><h1>Economize</h1>
+            <p>Usando o Drive você está na direção certa para fazer as melhores escolhas.</p></div>
+      </div>
+
+    <div class="flex-container">
+        <section id="section">
+            <div class="circle"></div>
+         
+            <div class="content">
+                <div class="textBox">
+                    <h2>Cuide do seu carro<br>com  o <span>Py Car</span></h2>
+                    <p>Cadastre, organize e descubra tudo a respeito <br> do seu carro, moto, caminhão ou ônibus. <br> Esteja onde você estiver, através do celular ou tablet. <br> Queremos o melhor para o seu veículo e, principalmente, para </p>
+                    <a href="#">Cadastre-se</a>
+                </div>
+                <div class="imgBox">
+                    <img src="no.PNG" class="starbucks">
+                </div>
+            </div>
+            <ul class="thumb">
+                <li><img src="no1.png" onclick="imgSlider('no.png');changeCircleColor('#2C4B7A')"></li>
+                <li><img  src="no1.png" onclick="imgSlider('no.png');changeCircleColor('#333')"></li>
+                <li><img src="no1.png" onclick="imgSlider('no.png');changeCircleColor('#EEAD2D')"></li>
+            </ul>
+            <ul class="sci">
+                <li><a href="#" target="_blank"><img src="facebook.png"></a></li>
+                <li><a href="#" target="_blank"><img src="twitter.png" ></a></li>
+                <li><a href="#" target="_blank"><img src="instagram.png"></a></li>
+            </ul>
+        </section>  
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
