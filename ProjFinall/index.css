@@ -112,7 +112,7 @@
 .banner{
     width: 100vw;
     height: 100vh;
-    background: url('banner.jfif');
+    background: url('imagens/banner.jfif');
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
