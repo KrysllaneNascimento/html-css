@@ -192,7 +192,7 @@ h1{
     justify-content: center;
     margin-top: 90px;
     margin-bottom: 130px;
-    background: url(banner.jfif);
+    background: url(imagens/banner.jfif);
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -203,18 +203,17 @@ h1{
     }
 #section{
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: url(logo.jfif);
-    background-size: cover;
     background-repeat: repeat;
 
 }
+
 
 .content{
    position: relative;
@@ -316,3 +315,66 @@ h1{
     clip-path: circle(600px at right 800px);
 
 }
+ /* ---------------- rodapé ---------------------------- */
+
+    .rodape{
+        background-color: #3B398A;
+        width: 100%;
+        height: 250px;
+        margin-top: 150px;
+        text-align: center;
+    }
+    
+    .foo1{
+        margin-bottom: 50px;
+        color: #FFF;
+    }
+    
+    .textfoot{
+        color: #FFF;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .links{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:10px;
+        margin-bottom: 20px;
+    }
+    
+    #nomes{
+        display: inline;
+        color: #FFF;
+    
+    }
+    
+    .link-nome{
+        color: #FFF;
+        margin-left: 15px;
+        margin-right: 10px;
+    
+    }
+    .lista-nomes{
+        align-items: center;
+        
+    }
+
+
+    .logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:18px;
+        margin-bottom: 50px;
+    }
+
+    .py{
+        font-size: 150px;
+        font-family: 'Quicksand', sans-serif;
+        color: #fff;
+        margin-top: 130px;
+
+    }
