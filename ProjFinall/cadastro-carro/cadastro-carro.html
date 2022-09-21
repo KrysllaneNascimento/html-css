@@ -15,7 +15,7 @@
     </header>
     <input type="checkbox" id="check">
     <label for="check" class="check">
-        <img src="menuu.png" alt="">
+        <img src="imagens/menuu.png" alt="">
     </label>
     <nav class="menu">
         <ul>
@@ -23,19 +23,26 @@
             <li> <a href="#">Teste</a></li>
             <li> <a href="#">Teste</a></li>
             <li> <a href="#">Teste</a></li>
-            <li> <a href="#">Teste</a></li>
         </ul>
     </nav>
+
+    <img class="logo" src="imagens/carro.png">
     
     <div class="box">
+        <form>
+            <label for="browser">Veículo</label>
+            <br>
+            <input list="browsers"  class="inputCar">
+            <datalist id="browsers">
+              <option value="Carro"></option>
+              <option value="Moto"></option>
+              <option value="Ônibus"></option>
+              <option value="Caminhão"></option>
+            </datalist>
+          </form>
+          <br><br>
         <form action="">
             <fieldset>
-
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputCar" required>
-                    <label for="nome" class="labelInput">Tipo Veiculo</label>
-                </div>
-                <br><br>
 
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputCar" required>
@@ -58,6 +65,38 @@
                     <label for="nome" class="labelInput">Placa(Opcional)</label>
                 </div>
                 <br><br>
+
+                <form>
+                    <label for="browser">Tanque</label>
+                    <br>
+                    <input list="browsers1"  class="inputCar">
+                    <datalist id="browsers1">
+                      <option value="1 Tanque"></option>
+                      <option value="2 Tanque"></option>
+                    </datalist>
+                  </form>
+                  <br><br>
+                  <br>
+                
+                  <form>
+                    <label for="browser">Tipo Combustível</label>
+                    <br>
+                    <input list="browsers2"  class="inputCar">
+                    <datalist id="browsers2">
+                      <option value="Líquido"></option>
+                      <option value="Gás liquefeito de petróleo"></option>
+                      <option value="Gás natural veicular"></option>
+                      <option value="Elétricos"></option>
+                    </datalist>
+                    <br><br>
+                    <br>
+                    <label for="browser">Volume do Tanque</label>
+                    <input type="text" name="nome" id="vol-tanque" class="inputCar" required>
+                    <br><br>
+                    <br>
+                  </form>
+
+                
                 <div class="inputBox">
                     <input type="text" name="nome" id="renavam" class="inputCar" required>
                     <label for="nome" class="labelInput">Renavam(Opcional)</label>
@@ -66,6 +105,7 @@
             </fieldset>
         </form>
     </div>
+
     
 </body>
 </html>

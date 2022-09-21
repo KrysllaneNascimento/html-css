@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var d = new Date();
+        console.log('getDate' +  d.getDate());
+        console.log('getDay' +  d.getDate());
+        console.log('getFullYear' +  d.getFullYear());
+        console.log('getHour' +  d.getHours());
+        console.log('getMilliseconds' + d.getMilliseconds());
+        console.log('getMinutes' +   d.getMinutes());
+        console.log('getMonth' +  d.getMonth());
+        console.log('getSeconds' +  d.getSeconds());
+        console.log('getTime' +  d.getTime());
+        // console.log(d.toUTCString());
+        // console.log(d.toDateString());
+
+
+        function Data(data = new Date()){
+            var dia = data.getDate();
+            var mes = data.getMonth()+1;
+            var ano = data.getFullYear();
+            var hora = data.getHours();
+            var minutos = data.getMinutes();
+
+            if (dia.toString().lenght == 1) dia = '0'+dia;
+            if (dia.toString().lenght == 1) mes = '0'+mes;
+            return dia+'/'+mes+'/'+ano
+        }
+        
+        function Hora(hora = new Date()){
+            var hora = data.getHours();
+            var minutos = data.getMinutes();
+            return hora+':'+minutos
+        }
+    </script>
+</body>
+</html>
