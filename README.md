@@ -1,2 +1,1 @@
-# html-css
- Curso de HTML5 e CSS3 do CursoEmVideo
+Repositório destinado aos meus estudos e projetos realizados com foco em HTML, CSS e JavaScript.
