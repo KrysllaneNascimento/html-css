@@ -1,0 +1,65 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    position: fixed;
+    width: 100%;
+    background-color: #2C4B7A;
+    z-index: 1;
+}
+header h1{
+    color: white;
+    font-weight: bold;
+}
+
+.menu{
+    position: fixed;
+}
+
+ .menu ul li a{
+    display: block;
+    padding: 40px 5px;
+    color: white;
+    text-decoration: none;
+}
+.menu ul li a:hover{
+    background-color: rgb(176, 224, 230);
+    color: black;
+}
+
+.check{
+    padding: 15px;
+    z-index: 1;
+    position: fixed;
+}
+
+.menu ul{
+    list-style: none;
+    background-color: grey;
+    top: 70px;
+    position: fixed;
+    width: 100%;
+
+}
+.check img{
+    width: 80px;
+    position: fixed;
+}
+input[type="checkbox"]{
+    display: none;
+    position: fixed;
+}
+
+nav{
+    background-color: grey;
+    width: 350px;
+    left: -350px;
+    height: 100%;
+    position: fixed;
+    transition: all .5s; 
+}
+
+input[type="checkbox"]:checked ~ nav{
+    transform: translateX(350px);
+}   

@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block link %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{% block pagina %}{% endblock %}</h1>
+    </header>
+    <input type="checkbox" id="check">
+    <label for="check" class="check">
+        <img src="{% static 'imagem/menuu.png' %}" alt="">
+    </label>
+    <nav class="menu">
+        <ul>
+            <li> <a href="{% url 'carro:usuario' %}">Home</a></li>
+            <li> <a href="{% url 'carro:cadastro_veiculo' %}">Cadastrar veículo</a></li>
+            <li> <a href="{% url 'carro:abastecer_veiculo' %}">Abastecer</a></li>
+            <li> <a href="{% url 'carro:troca_oleo' %}">Troca de óleo</a></li>
+            <li> <a href="{% url 'carro:despesas_veiculo' %}">Despesas</a></li>
+            <li> <a href="{% url 'carro:logout'%}">Logout</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/usuario.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'imagem/veiculos.ico' %}"/>
+
+    <title>Tela Usuário</title>
+</head>
+<body>
+    {% csrf_token %}
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'imagem/road.png' %}">
+                    <h2 class="text-muted">OnTheRoad</h2>
+                </div>
+                <div class="close" id="close-bnt">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="{% url 'carro:usuario' %}" class="active">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Home</h3>
+                </a>
+                <a href="{% url 'carro:cadastro_veiculo' %}">
+                    <span class="material-icons-sharp">no_crash</span>
+                    <h3>Cadastrar veiculo</h3>
+                </a>
+                <a href="{% url 'carro:abastecer_veiculo' %}">
+                    <span class="material-icons-sharp">local_gas_station</span>
+                    <h3>Abastecimento</h3>
+                </a>
+                <a href="{% url 'carro:troca_oleo' %}">
+                    <span class="material-icons-sharp">oil_barrel</span>
+                    <h3>Troca óleo</h3>
+                </a>
+                <a href="{% url 'carro:despesas_veiculo' %}">
+                    <span class="material-icons-sharp">payments</span>
+                    <h3>Despesas</h3>
+                </a>
+                <a href="{% url 'carro:logout'%}">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <div id="grid-content">
+            <div class="grid-item" id="div-content-1">
+                <h1 class="vei">Veículos cadastrados</h1>
+                {% for c in carros %}
+                    <a href="{% url 'carro:exibir_dados' placa_nome=c.placa %}">
+                        <div class="placas" id="placas">PLACA {{ c.placa|upper }} - {{c.nome|upper}}</div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="grid-item" id="div-content-2">
+                <h1 class="vei">Dados usuário</h1>
+                <p>USER: {{ usuario.username }}</p> 
+                <p>EMAIL: {{ usuario.email}}</p>
+                <p>TELEFONE: {{ usuario.telefone}}</p>
+                <p>VEÍCULOS CADASTRADOS: {{ carros|length }}</p>
+            </div>
+            <img class="grid-item" id="image-content" src="{% static 'imagem/dados.png' %}">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+html{
+    font-size: 14px;
+
+}
+
+body{
+    width: 100vw;
+    height: 99vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: rgba(223, 223, 223, 0.453);
+    user-select: none;
+    overflow-x: hidden;
+
+}
+
+a{
+    color: black;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 01.8rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: #2C4B7A;
+}
+
+p{
+    color: #2C4B7A;
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+
+}
+
+aside{
+    height: 100vh;
+}
+
+aside .top{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4 rem;
+}
+
+aside .top img{
+    width: 2rem;
+    height: 2rem;
+
+}
+
+aside .logo{
+    display: flex;
+    gap: 0.5rem;
+}
+
+aside .close{
+    display: none;
+}
+
+/* ------------------barra-------------------- */
+
+aside .sidebar{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 2rem;
+
+}
+
+aside h3{
+    font-weight: 500;
+}
+
+aside .sidebar a{
+    display: flex;
+    color: #2C4B7A;
+    margin-left: 1rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 4.4rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active{
+    background:#2c4b7a47;
+    color:#2C4B7A;
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: #2C4B7A;
+}
+
+aside .sidebar a.active span{
+    color: #2C4B7A;
+    margin-left: calc(1rem - 5px);
+}
+
+aside .sidebar a:hover{
+    color: #2C4B7A;
+}
+
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+
+
+
+#grid-content{
+    display: grid;
+    gap: 50px;
+    width: 30vw
+}
+
+
+#div-content-1{
+    width: 45vw;
+    height: 90vh;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #2C4B7A;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15vw;
+    margin-top: 5vh;
+}
+
+#form{
+    width: 80%;
+}
+
+#form-cadastrar{
+    color: #2C4B7A;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 35px;
+    border-radius: 15px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.mb-3{
+    padding: 15px;
+    display: inline-block;
+    width: 80%;
+    font-family: poppins, sans-serif;
+    margin: auto;
+}
+
+
+.form-control{
+    display: block;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #2C4B7A;
+    color: #2C4B7A;
+    font-size: 13pt;
+    width: 100%;
+    letter-spacing: 2px;
+    margin: auto;
+}
+
+.requiredField{
+    display: block;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+.form-select{
+    display: block;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    color: #2C4B7A;
+    font-size: 15pt;
+    width: 100%;
+    letter-spacing: 2px;
+    margin: auto;
+}
+.requiredField::before{
+    content: "";
+    
+}
+
+.form-control:focus,
+.form-control:valid{
+    top: -20px;
+    font-size: 15pt;
+    color: #2C4B7A;
+}
+
+input[type="submit"]
+{
+    margin-top: 20px;
+    background-color: #2C4B7A;
+    width: 40%;
+    height: auto;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    font-family: poppins, sans-serif;
+    margin-left: 1.5vw;
+
+}
+
+input[type="checkbox"]{
+    display: inline;
+    margin-left: 10px;
+}
+
+#div_id_filtro_oleo{
+    margin-left: -15px;
+    }
+
+.vei{
+    text-align: center;
+    color: #2C4B7A;
+    margin-top: 0.1vw;
+    font-family: poppins, sans-serif;
+    font-size: 27px;
+}
+
+.invalid-feedback{
+    color: red;
+    font-family: poppins, sans-serif;
+
+}
+

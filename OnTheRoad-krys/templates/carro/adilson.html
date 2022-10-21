@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adilson</title>
+    <link rel="stylesheet" href="{% static 'css/gabriel.css' %}">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="{% url 'inicial' %}"><img src="{% static 'imagem/lg.jfif' %}"  class="logo"></a>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Olá<br>seja bem vindo!<br>meu nome é<span> Adilson</span></h2>
+                <br><br>
+                <p>Sou uma pessoa experiente tenho habilidades e competência e com um desejo muito grande de fazer o meu melhor, após o entra 21 quero continuar a estudar, tenho muito interesse em trabalhar na área de TI e somar com a equipe, aprendo rápido sou autodidata, dedicado e fiel ao propósito da empresa.</p>
+                <a href="https://linktr.ee/dilso01" target="_blank">Venha me conhecer !</a>
+            </div>
+            <div class="imgBox">
+                <img src="{% static 'imagem/adil.png' %}" class="starbucks">
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
+
+{% endblock %}

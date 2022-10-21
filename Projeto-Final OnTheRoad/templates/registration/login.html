@@ -1,0 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style-login.css' %}">    
+    <title>Login</title>
+</head>
+<body>
+    <section class="area-login">
+        <div class="login">
+            <div><img src="{% static 'imagem/road.png' %}" alt="pycar logo"></div>
+            <form action="" method="post" id="form-login">
+                {% csrf_token %}
+                {{ form.username.errors }}
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.password.errors }}
+                <label for="password">Senha:</label>
+                {{ form.password }}
+                <input type="submit" value="Entrar">
+            </form>
+            
+            <p>Ainda não é cadastrado?<br><a href="{% url 'accounts:cadastro' %}">Cadastre-se Aqui!</a></p>
+        </div>
+    </section>
+</body>
+</html>

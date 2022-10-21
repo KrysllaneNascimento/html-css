@@ -1,0 +1,117 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/carro_detalhes.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'imagem/veiculos.ico' %}"/>
+    <title>Tela Usuário</title>
+</head>
+<body>
+    <div class="container">    
+        {% csrf_token %}
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'imagem/road.png' %}">
+                    <h2 class="text-muted">OnTheRoad</h2>
+                </div>
+                <div class="close" id="close-bnt">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="{% url 'carro:usuario' %}" class="active">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Home</h3>
+                </a>
+                <a href="{% url 'carro:cadastro_veiculo' %}">
+                    <span class="material-icons-sharp">no_crash</span>
+                    <h3>Cadastrar veiculo</h3>
+                </a>
+                <a href="{% url 'carro:abastecer_veiculo' %}">
+                    <span class="material-icons-sharp">local_gas_station</span>
+                    <h3>Abastecimento</h3>
+                </a>
+                <a href="{% url 'carro:troca_oleo' %}">
+                    <span class="material-icons-sharp">oil_barrel</span>
+                    <h3>Troca óleo</h3>
+                </a>
+                <a href="{% url 'carro:despesas_veiculo' %}">
+                    <span class="material-icons-sharp">payments</span>
+                    <h3>Despesas</h3>
+                </a>
+                <a href="{% url 'carro:logout'%}">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main id="grid-content">
+            <div class="grid-item" id="div-content-1">
+                {% for t in trocas_oleo %}
+                    <div class="geral">
+                        <h1 class="c4">Troca de óleo</h1>
+                        <span class="material-icons-sharp" id="ico">oil_barrel</span>
+                    </div>
+                    <div class="return">
+                                <p class="return1">Dia: {{t.data}}</p>
+                                {% if t.filtro_oleo %}
+                                    <p class="return2">Filtro de óleo trocado</p>
+                                {% else %}
+                                    <p class="return2">Filtro de óleo não trocado</p>
+                                {% endif %}
+                                <p class='return3'> KM: {{t.km_atual}}</p>
+                        </li>
+                    </div>
+                {% endfor %}  
+                {% for d in despesas %}
+                    <div class="geral">
+                        <h1 class="c4">Despesas</h1>
+                        <span class="material-icons-sharp" id="ico">payments</span>
+                    </div>
+                    <div class="return">
+                                <p class="return1">Dia: {{d.data}}</p>
+                                <p class="return2">Valor: R${{d.valor}}</p>
+                                <p class='return3'> Despesa: {{d.opcao}}</p>
+                        </li>
+                    </div>
+                {% endfor %}  
+                {% for a in abastecimentos %}
+                    <div class="geral">
+                        <h1 class="c4">Abastecimento</h1>
+                        <span class="material-icons-sharp" id="ico">local_gas_station</span>
+                    </div>
+                    <div class="return">
+                                <p class="return1">Dia: {{a.data}}</p>
+                                <p class="return2">Valor: R${{a.valor_total}}</p>
+                                <p class='return3'> Litros: {{a.qtd_litros}}</p>
+                        </li>
+                    </div>
+                {% endfor %}
+                  
+                </div>
+            <div class="grid-item" id="div-content-2">
+                <h1 class="tit">CADASTRO VEÍCULO</h1>
+                <p>Marca: {{carro.marca|upper}}</p>
+                <p>Modelo: {{carro.modelo|upper}}</p>
+                <p>Placa: {{carro.placa|upper}}</p>
+                <p>Nome: {{carro.nome|upper}}</p>
+                <p>Tipo combustível: {{carro.tipo_combustivel|upper}}</p>
+                <p>Ano: {{carro.ano}}</p>
+                <p>Renevam: {{carro.renavam}}</p>
+            </div>
+            <div class="grid-item" id="div-content-3">
+                <h1 class="tit">INFORMAÇÕES DE DESPESA</h1>
+                <p class="info">Total gasto: R${{despesas_totais}}</p>
+                <p class="info">Fazer troca de óleo daqui a {{troca_oleo}} km</p>
+            </div>
+        </main>
+    </body>
+    </html>

@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+html{
+    font-size: 14px;
+
+}
+
+body{
+    width: 100vw;
+    height: 99vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: rgba(223, 223, 223, 0.453);
+    user-select: none;
+    overflow-x: hidden;
+
+}
+
+a{
+    color: black;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 01.8rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: #2C4B7A;
+}
+
+p{
+    color: #2C4B7A;
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+
+}
+
+aside{
+    height: 100vh;
+}
+
+aside .top{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4 rem;
+}
+
+aside .top img{
+    width: 2rem;
+    height: 2rem;
+
+}
+
+aside .logo{
+    display: flex;
+    gap: 0.5rem;
+}
+
+aside .close{
+    display: none;
+}
+
+/* ------------------barra-------------------- */
+
+aside .sidebar{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 2rem;
+
+}
+
+aside h3{
+    font-weight: 500;
+}
+
+aside .sidebar a{
+    display: flex;
+    color: #2C4B7A;
+    margin-left: 1rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 4.4rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active{
+    background:#2c4b7a47;
+    color:#2C4B7A;
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: #2C4B7A;
+}
+
+aside .sidebar a.active span{
+    color: #2C4B7A;
+    margin-left: calc(1rem - 5px);
+}
+
+aside .sidebar a:hover{
+    color: #2C4B7A;
+}
+
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+
+
+
+#grid-content{
+    display: grid;
+    grid-template-areas: 
+    "div1 div2"
+    "div1 image";
+    gap: 15px;
+    margin: auto;
+    width: 80vw
+}
+
+
+#div-content-1{
+    width: 35vw;
+    height: 80vh;
+    grid-area: div1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    background-color: white;
+}
+
+#div-content-2{
+    width: 35vw;
+    height: 40vh;
+    grid-area: div2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    background-color: white;
+}
+
+#image-content{
+    width: 35vw;
+    height: 40vh;
+    grid-area: image;
+}
+
+.vei{
+    text-align: center;
+    color: #2C4B7A;
+    margin-top: 2vw;
+    font-family: poppins, sans-serif;
+    font-size: 30px;
+}
+
+
+p{
+    font-size: 18px;
+    margin-left: 3vh;
+    margin-top: 1vw;
+
+}
+
+.placas{
+    margin-left: 3vh;
+    border: 1px #2C4B7A solid;
+    box-shadow: 1px 1px 4px #2C4B7A;
+    border-radius: 20px;
+    font-size: 15pt;
+    color: #2C4B7A;
+    margin: 4vh;
+    padding-left: 8px;
+    margin-left: 55px;
+    margin-right: 55px;
+    text-align: center;
+}
+
+#placas:hover{
+    background-color: #2C4B7A; 
+    transition: 0.3s; 
+    color: white;
+}

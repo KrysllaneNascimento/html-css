@@ -1,0 +1,101 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnTheRoad</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}" rel="stylesheet" ></script>
+
+</head>
+<body>
+
+        <header>
+        <nav id='menu'>
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <ul>
+            <li><a href="#anchor"><b>On The Road</b></a></li>
+            <li><a href="{% url 'login' %}"><b>Login</b></a></li>
+            <li><a href="#contato"><b>Informações</b></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- banner -->
+    <section class="banner">
+        <img src="{% static 'imagem/banner.png' %}" class="banner">
+        
+    </section>  
+
+    <div class="cont">
+        <div class="logo">
+            <img src="{% static 'imagem/road.png' %}" class="logo">
+        </div>
+        <div class="nome">
+             <h1 class="nome">OnTheRoad</h1>
+        </div>           
+    </div>
+
+    <h1 class="sub-titulo"> Tudo sobre seu veículo,<br> na tela do seu computador</h1>
+
+    
+    <div id="anchor"></div><h2>VOCÊ NO CONTROLE</h2>
+    <h5><b>O OnTheRoad é o site ideal para você que se <br>preocupa com  a gestão de custos do seu veículo.</b></h5>
+
+    <div class="container">
+        <div class="iimg"><img src="{% static 'imagem/check.png' %}" alt=""><h1>Controle seus gastos</h1>
+            <p>Registre todos os abastecimentos, despesas e serviços do seu veículo.</p></div>
+        <div class="iimg"><img src="{% static 'imagem/pc.png' %}" alt=""><h1>Seja avisado</h1>
+            <p>Você receberá e-mails para não se esquecer de revições, manutenções e pagamentos.</p></div>
+        <div class="iimg"><img src="{% static 'imagem/car.png' %}" alt=""><h1>Economize</h1>
+            <p>Com OnTheRoad, gerenciar seus gastos e econimizar, fica mais fácil.</p></div>
+      </div>
+   
+  
+    <div class="flex-container">
+<div class="banner-2">
+            <div class="circle"></div> 
+            <div class="content">
+                <div class="textBox">
+                    <h2>Cuide do seu carro<br>com  o <span>OnTheRoad</span></h2>
+                    <p>OnTheRoad é um site que te permite controlar gastos veiculares. <br> Com ele é possível controlar as despesas como abastecimento, manutenção, além <br>de receber avisos sobre ações rotineiras, como calibrar os pneus, ou trocar o óleo.<br> Serve tanto para motoristas de aplicativo, como para uso pessoal.</p>
+                    <a href="{% url 'accounts:cadastro' %}">Cadastre-se</a>
+                </div>
+                <div class="imgBox">
+                    <img src="{% static 'imagem/carro-eletrico.png' %}"class="starbucks">
+                </div>
+            </div>
+            <ul class="thumb">
+                <li><img src="{% static 'imagem/car-service.png' %}" onclick="imgSlider('{% static 'imagem/car-service.png'%}');changeCircleColor('#142a4d')"></li>
+                <li><img src="{% static 'imagem/economizar.png' %}" onclick="imgSlider('{% static 'imagem/economizar.png'%}');changeCircleColor('#2d4e80')"></li>
+                <li><img src="{% static 'imagem/carro-eletrico.png' %}" onclick="imgSlider('{% static 'imagem/carro-eletrico.png'%}') ;changeCircleColor('#598bd5')"></li>
+            </ul>
+
+      </div>
+    </div>
+
+    <footer class="rodape">
+        <br>
+        <h1 class="foo1">OnTheRoad</h1>
+        <p class="textfoot">Esse é um site onde facilitamos a visualização gestão de gastos de seu veículo</p>
+        <ul class="links">
+          <div class="lista-nomes">
+            <li id="nomes"><a href="https://www.linkedin.com/in/larissaassisbittelbrunn/" target="_blank" class="link-nome">Cauã</a></li>
+            <li id="nomes">|</li>
+            <li id="nomes"><a href="https://www.linkedin.com/in/larissaassisbittelbrunn/" target="_blank" class="link-nome">Adilson</a></li>
+            <li id="nomes">|</li>
+            <li id="nomes"><a href="https://www.linkedin.com/in/larissaassisbittelbrunn/" target="_blank" class="link-nome">Larissa</a></li>
+            <li id="nomes">|</li>
+            <li id="nomes"><a href="https://www.linkedin.com/in/marinafariastech" target="_blank" class="link-nome">Gabriel</a></li>
+            <li id="nomes">|</li>
+            <li id="nomes"><a href="https://www.linkedin.com/in/afia-barbosa-752b8b22a" target="_blank" class="link-nome">Kryslaine</a></li>
+        </div>
+        </ul>
+      </footer> 
+      <script src="script.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,65 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nós</title>
+    <link href="{% static 'css/style-equipe.css' %}" rel="stylesheet">
+
+</head>
+<body style="background-image:url('{% static "imagem/banner.png" %}'); width: 100%;height: 100vh;background-position:center;background-size:cover;">
+    <div class="container">
+    
+        <div class="row" style="display: flex;height: 88%;align-items: center;">
+            <div class="col" style="flex-basis: 50%;">
+                    <h1 style="color: #fff;font-size: 100px;margin-left: 10px;">Equipe OnTheRoad</h1>
+                    <p style="color: #fff;font-size: 20px;line-height: 18px;margin-left: 10px;">Conheça um pouco mais sobre a equipe de desenvolvedores do <br> <br> OnTheRoad clicando na sua foto!</p>
+            </div>
+
+            <div class="col">
+
+                <a href="{% url 'gabriel' %}">
+                    <div class="card1"style="background-image:url('{% static "imagem/gabri1.png" %}');">
+                        <h5>GABRIEL</h5>
+                    </div>
+                </a>
+
+                <a href="{% url 'mark' %}" style="text-decoration:none">
+                    <div class="card2"style="background-image:url('{% static "imagem/mark.png" %}');">
+                        <h5>CAUAN</h5>
+                    </div>
+                </a>
+
+                    <a href="{% url 'krysllane' %}" style="text-decoration:none">
+                        <div class="card3" style="background-image:url('{% static "imagem/krys-foto.png" %}');">
+                                <h5>KRYSLLANE</h5>
+                        </div>
+                    </a>
+                    <br><br>
+
+
+                <a href="{% url 'larissa' %}" style="text-decoration:none">
+                    <div class="card3">
+                        <h5>LARISSA</h5>
+                    </div>
+                </a>
+
+                <a href="{% url 'adilson' %}" style="text-decoration:none">
+                    <div class="card4" style="background-image:url('{% static "imagem/adil.png" %}');">
+                        <h5>ADILSON</h5>
+                    </div>
+                </a>
+
+    
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

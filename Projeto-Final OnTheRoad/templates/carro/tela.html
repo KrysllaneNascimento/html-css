@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'css/tela.css' %}">
+    <title>OnTheRoad</title>
+</head>
+<body>
+    <header>
+        <h1>TELA USUÁRIO</h1>
+    </header>
+    <input type="checkbox" id="check">
+    <label for="check" class="check">
+        <img src="{% static 'imagem/menuu.png' %}" alt="">
+    </label>
+    <nav class="menu">
+        <ul>
+            <li> <a href="{% url 'carro:usuario' %}">Home</a></li>
+            <li> <a href="{% url 'carro:cadastro_veiculo' %}">Cadastrar veículo</a></li>
+            <li> <a href="{% url 'carro:abastecer_veiculo' %}">Abastecer</a></li>
+            <li> <a href="{% url 'carro:troca_oleo' %}">Troca de óleo</a></li>
+            <li> <a href="{% url 'carro:despesas_veiculo' %}">Despesas</a></li>
+            <li> <a href="{% url 'carro:logout'%}">Logout</a></li>
+        </ul>
+    </nav>
+
+ </body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star tow</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#"><img src="imagens/lg.jfif"  class="logo"></a>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Apaixonado por Tecnologia, meu nome é <span>Cauã</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis magni at nisi sit cum ducimus, libero tempora similique reiciendis eaque, in temporibus consequatur praesentium sunt error doloremque animi autem beatae?</p>
+                <a href="https://linktr.ee/CauaMark" target="_blank">Venha me conhecer !</a>
+            </div>
+            <div class="imgBox">
+                <img src="imagens/mark.png" class="starbucks">
+            </div>
+        </div>
+        <ul class="sci">
+            <li><a href="#"><img src="imagens/facebook.png"></a></li>
+            <li><a href="#"><img src="imagens/twitter.png"></a></li>
+            <li><a href="#"><img src="imagens/instagram.png"></a></li>
+        </ul>
+    </section>
+    <script type="text/javascript">
+        function imgSlider(anything){
+            document.querySelector('.starbucks').src = anything;
+
+        }
+        function changeCircleColor(color){
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+    </script>
+    
+</body>
+</html>

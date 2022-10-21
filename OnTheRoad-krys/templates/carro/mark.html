@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cauã Mark</title>
+    <link rel="stylesheet" href="{% static 'css/mark.css' %}">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="{% url 'inicial' %}"><img src="{% static 'imagem/lg.jfif' %}"  class="logo"></a>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Determinado em inovar,meu nome <br>é<span> Cauã Mark</span></h2>
+                <br><br>
+                <p>Olá, me chamo Cauã Mark de Pinho, tenho 18 anos e estou sempre procurando novos desafios na área da tecnologia.Sou uma pessoa resiliente e criativa e focado nos meus objetivos.</p>
+                <a href="https://linktr.ee/CauaMark" target="_blank">Venha me conhecer !</a>
+            </div>
+            <div class="imgBox">
+                <img src="{% static 'imagem/mark.png' %}" class="starbucks">
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
+
+{% endblock %}

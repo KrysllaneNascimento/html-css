@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Assis</title>
+    <link rel="stylesheet" href="{% static 'css/gabriel.css' %}">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="{% url 'inicial' %}"><img src="{% static 'imagem/lg.jfif' %}"  class="logo"></a>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Focado em cumprir as metas,<br>sou o<span> Gabriel</span></h2>
+                <br><br>
+                <p>Tenho 17 anos e sempre vi a tecnologia como algo a ser compreendido, demonstrando desde sempre muita curiosidade. Ingressei nessa área com o objetivo de adquirir uma lógica melhor, e aprimorar a minha resolução de problemas.</p>
+                <a href="https://linktr.ee/gabriel.mchlmnn" target="_blank">Venha me conhecer !</a>
+            </div>
+            <div class="imgBox">
+                <img src="{% static 'imagem/gabri1.png' %}" class="starbucks">
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
+
+{% endblock %}

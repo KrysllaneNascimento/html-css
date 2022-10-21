@@ -1,0 +1,94 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style-troca-oleo.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'imagem/veiculos.ico' %}"/>
+    <title>TROCA DE ÓLEO</title>
+</head>
+<body>    
+    {% csrf_token %}
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'imagem/road.png' %}">
+                    <h2 class="text-muted">OnTheRoad</h2>
+                </div>
+                <div class="close" id="close-bnt">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="{% url 'carro:usuario' %}" class="active">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Home</h3>
+                </a>
+                <a href="{% url 'carro:cadastro_veiculo' %}">
+                    <span class="material-icons-sharp">no_crash</span>
+                    <h3>Cadastrar veiculo</h3>
+                </a>
+                <a href="{% url 'carro:abastecer_veiculo' %}">
+                    <span class="material-icons-sharp">local_gas_station</span>
+                    <h3>Abastecimento</h3>
+                </a>
+                <a href="{% url 'carro:troca_oleo' %}">
+                    <span class="material-icons-sharp">oil_barrel</span>
+                    <h3>Troca óleo</h3>
+                </a>
+                <a href="{% url 'carro:despesas_veiculo' %}">
+                    <span class="material-icons-sharp">payments</span>
+                    <h3>Despesas</h3>
+                </a>
+                <a href="{% url 'carro:logout'%}">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <div class="form">
+            <div id="grid-content">
+                <div class="grid-item" id="div-content-1">
+                    <form action="" method="post" id="form-cadastrar">
+                        <h1 class="vei">TROCA ÓLEO</h1>
+                        {% csrf_token %}
+                        {{ form.placa|as_crispy_field }}
+                        {{ form.data|as_crispy_field }}
+                        {{ form.km_atual|as_crispy_field }}
+                        {{ form.proxima_troca|as_crispy_field }}
+                        <div class="mb-3"> 
+                            <div id="div_id_filtro_oleo" class="mb-3"> 
+                                <label for="id_filtro_oleo" class="form-check-label">Troca de filtro: </label>
+                                <input type="checkbox" name="filtro_oleo" class="checkboxinput form-check-input" id="id_filtro_oleo" checked> 
+                            </div>
+                        </div>
+                <input type="submit" value="ENVIAR">
+        </div>
+    </div>
+</div>
+
+<script>
+    function Data(){
+        const data = new Date();
+        const dia = data.getDate();
+        const mes = data.getMonth()+1;
+        const ano = data.getFullYear();
+
+        if (dia.toString().lenght == 1) dia = '0'+dia;
+        if (dia.toString().lenght == 1) mes = '0'+mes;
+        return  `${dia}/${mes}/${ano}`
+    }
+    document.querySelector('#id_data').setAttribute('value', Data());
+</script>
+</body>
+</html>
+
+
+
+

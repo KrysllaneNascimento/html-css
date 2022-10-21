@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}OnTheRoad{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="{% static 'css/style-abastecer.css' %}">
+{% endblock %}
+{% block pagina %}ABASTECIMENTO{% endblock %}
+{% block content %}
+    <div class="form">
+        <form action="" method="post" id="form-cadastrar">
+            {% csrf_token %}
+            {{ form.placa|as_crispy_field }}
+            {{ form.data|as_crispy_field }}
+            {{ form.odometro|as_crispy_field }}
+            {{ form.tipo_combustivel|as_crispy_field }}
+            {{ form.qtd_litros|as_crispy_field }}
+            {{ form.preco|as_crispy_field }}
+            {{ form.valor_total|as_crispy_field }}
+            {{ form.posto|as_crispy_field }}
+            <div class="mb-3"> 
+                <div id="div_id_filtro_oleo" class="mb-3"> 
+                    <label for="id_filtro_oleo" class="form-check-label">Encheu o tanque: </label>
+                    <input type="checkbox" name="filtro_oleo" class="checkboxinput form-check-input" id="id_filtro_oleo" checked> 
+                </div>
+            </div>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+{% endblock %}
