@@ -55,7 +55,7 @@
         </aside>
         <main id="grid-content">
             <div class="grid-item" id="div-content-1">
-                {% for t in trocas_oleo %}
+                {% for t in proxima_troca_oleo %}
                     <div class="geral">
                         <h1 class="c4">Troca de óleo</h1>
                         <span class="material-icons-sharp" id="ico">oil_barrel</span>
@@ -71,7 +71,7 @@
                         </li>
                     </div>
                 {% endfor %}  
-                {% for d in despesas %}
+                {% for d in despesas_totais %}
                     <div class="geral">
                         <h1 class="c4">Despesas</h1>
                         <span class="material-icons-sharp" id="ico">payments</span>
@@ -105,12 +105,17 @@
                 <p>Nome: {{carro.nome|upper}}</p>
                 <p>Tipo combustível: {{carro.tipo_combustivel|upper}}</p>
                 <p>Ano: {{carro.ano}}</p>
-                <p>Renevam: {{carro.renavam}}</p>
+                <p>Renavam: {{carro.renavam}}</p>
             </div>
-            <div class="grid-item" id="div-content-3">
-                <h1 class="tit">INFORMAÇÕES DE DESPESA</h1>
-                <p class="info">Total gasto: R${{despesas_totais}}</p>
-                <p class="info">Fazer troca de óleo daqui a {{troca_oleo}} km</p>
+            <div class="info" id="div-content-3">
+                <br><strong>KM por litro da última viagem:</strong>{{ mensagem_media }}
+                <br>
+                <br><strong>Proxima troca do óleo:</strong>{{ mensagem_oleo }}
+                <br>
+                <br><strong>Despesas totais: R$</strong>{{ despesas_totais_soma }}
+                <br>
+                <br><strong>Despesas de abastecimento: R$</strong>{{ despesas_abastecimentos_soma }}
+
             </div>
         </main>
     </body>

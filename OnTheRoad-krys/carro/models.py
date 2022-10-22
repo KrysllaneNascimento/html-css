@@ -18,7 +18,7 @@ class Veiculo(models.Model):
     ano = models.IntegerField()
     tanque = models.IntegerField()
     tipo_combustivel = models.ForeignKey(TipoCombustivel, on_delete=models.DO_NOTHING, related_name='veiculos', verbose_name='Tipo de combustível')
-    odometro = models.DecimalField('Odômetro', max_digits=15, decimal_places=2)
+    odometro = models.FloatField('Odômetro')
     renavam = models.CharField(max_length=11)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Abastecer(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     placa = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     data = models.DateField()
-    odometro = models.DecimalField('Odômetro', max_digits=15, decimal_places=2)
+    odometro = models.FloatField('Odômetro')
     tipo_combustivel = models.ForeignKey(TipoCombustivel, on_delete=models.DO_NOTHING, verbose_name='Tipo de combustível')
     qtd_litros = models.FloatField('Litros abastecidos')
     completo = models.BooleanField(default=False)
@@ -47,7 +47,7 @@ class Despesa(models.Model):
     placa = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     opcao = models.ForeignKey(TipoDespesa, on_delete=models.DO_NOTHING, verbose_name='Tipo de despesa')
     valor = models.FloatField()
-    odometro = models.DecimalField('Odômetro', max_digits=15, decimal_places=2)
+    odometro = models.FloatField('Odômetro')
     data = models.DateField()
     local = models.CharField(max_length=50)
     observacao = models.CharField('Observação' ,max_length=144, blank=True)

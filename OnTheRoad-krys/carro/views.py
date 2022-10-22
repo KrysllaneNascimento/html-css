@@ -5,6 +5,9 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 import carro.models as models
+import email
+import smtplib
+from django.contrib.auth.decorators import login_required
 
 def principal(request):
     return render(request, 'inicial.html')
@@ -83,7 +86,7 @@ class Despesas(LoginRequiredMixin, CreateView):
         kwargs['request'] = self.request
         return kwargs
 
-class Troca_Oleo(LoginRequiredMixin, CreateView):
+class Trocar_Oleo(LoginRequiredMixin, CreateView):
     model = Troca_Oleo
     form_class = FormularioTrocaOleo
     success_url = reverse_lazy('carro:usuario')
@@ -113,40 +116,104 @@ def logout_view(request):
     return redirect('carro:inicial')
 
 
+@login_required(login_url='/login/')
 def exibir_dados(request, placa_nome):
     user = request.user.id
     usuario = get_object_or_404(User, id=user)
     carro = get_object_or_404(Veiculo, usuario_id=user, placa=placa_nome)
     id_placa = carro.id
-    dados_abast = Abastecer.objects.filter(usuario_id=user, placa_id=id_placa)
-    despesas = Despesa.objects.filter(usuario_id=user, placa_id=id_placa)
-    trocas_oleo = models.Troca_Oleo.objects.filter(usuario_id=user, placa_id=id_placa)
+    abastecimentos = Abastecer.objects.filter(usuario_id=user, placa_id=id_placa)
+    proxima_troca_oleo = Troca_Oleo.objects.filter(placa_id=id_placa)
+    despesas_totais = Despesa.objects.filter(usuario_id=user, placa_id=id_placa)
+    despesas_totais_lista = []
+    despesas_totais_abastecimentos = []
     lista_odo = []
     lista_qtd = []
-    valores_totais = []
-    valores_abastecimentos = []
-    valores_despesas = []
-    for i in dados_abast:
+    for i in abastecimentos:
         lista_odo.append(i.odometro)
-    for i in dados_abast:
-        lista_qtd.append(i.qtd_litros)
+        despesas_totais_abastecimentos.append(i.valor_total)
+    for j in abastecimentos:
+        lista_qtd.append(j.qtd_litros)
+    lista_odometro = []
+    for i in despesas_totais:
+        despesas_totais_lista.append(i.valor)
 
-    for i in despesas:
-        valores_totais.append(i.valor)
-        valores_despesas.append(i.valor)
-    for i in dados_abast:
-        valores_totais.append(i.valor_total)
-        valores_abastecimentos.append((i.valor_total))
-    despesas_totais = sum(valores_totais)
-    despesas_abastecimento = sum(valores_abastecimentos)
-    despesas_carro = sum(valores_despesas)
-
-    if carro.odometro < 10000: 
-        km_faltante = 10000 - carro.odometro
+    despesas_totais_soma = sum(despesas_totais_lista)
+    despesas_abastecimetos_soma = sum(despesas_totais_abastecimentos)
+    lista_litros = []
+    inicial = []
+    for i in abastecimentos:
+        lista_odometro.append(i.odometro)
+    lista_odometro.reverse()
+    lista_cont = []
+    if len(lista_odometro) > 0:
+        odometro_recente = lista_odometro[0]
     else:
-        km_excedente = carro.odometro % 10000
-        print(carro.odometro)
-        km_faltante = 10000 - km_excedente
+        odometro_recente = 'Você ainda não cadastrou o seu odômetro'
+    proximas_trocas = []
+    verificador= []
+    mensagem_media = ''
+    for j in proxima_troca_oleo[::-1]:
+        proximas_trocas.append(j.proxima_troca)
+    proximas_trocas.reverse()
+    if len(proximas_trocas) > 0:
+        conta = proximas_trocas[-1] - lista_odometro[0]
+        if conta > 1:
+            mensagem_oleo = f'Faltam {conta} km para a próxima troca de óleo.'
+            odometro_recente = lista_odometro[0]
 
-    context = {'usuario': usuario, 'carro': carro, 'despesas_totais': despesas_totais, 'despesas_abastecimento': despesas_abastecimento, 'despesas_carro': despesas_carro, 'troca_oleo': km_faltante, 'abastecimentos': dados_abast, 'despesas': despesas, 'trocas_oleo': trocas_oleo}
-    return render(request, 'carro/exibir_dados.html', context)
+        elif conta == 1:
+            mensagem_oleo = f'Falta {conta} km para a próxima troca'
+        else:
+            mensagem_oleo = 'Você já pode realizar sua troca de óleo.'
+
+            def enviar_email():
+                corpo_email = """
+                       <p>Olá amigo, você é um amigo</p>
+                       """
+                msg = email.message.Message()
+                msg['Subject'] = f"Opa {usuario.nome}, tudo bem? Você já pode fazer a sua troca de óleo!!!"
+                msg['From'] = 'ontheroad.suporte@gmail.com'
+                msg['To'] = str(usuario.email)
+                senha = 'taeyyjjhbbjubdno'
+                msg.add_header('Content-Type', 'text/html')
+                msg.set_payload(corpo_email)
+                s = smtplib.SMTP('smtp.gmail.com: 587')
+                s.starttls()
+                s.login(msg['From'], senha)
+                s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+                print('Email enviado')
+
+            enviar_email()
+    else:
+        mensagem_oleo = 'Troca de óleo não cadastrada'
+    while True:
+            for i in abastecimentos[::-1]:
+                if i.completo == True:
+                    inicial.append(i.odometro)
+                    lista_litros.append(i.qtd_litros)
+                    lista_cont.append(i.completo)
+                if i.completo == False:
+                    lista_litros.append(i.qtd_litros)
+                elif len(lista_cont) == 2:
+                    inicial.append(i.odometro)
+                    lista_litros.remove(lista_litros[-1])
+                    break
+            if len(lista_cont) <= 1:
+                    mensagem_media = 'Média incalculável'
+            else:
+                for j in abastecimentos:
+                    verificador.append(j.completo)
+                if verificador[-1] == True:
+                    soma = sum(lista_litros)
+                    calculo = float(inicial[0]) - float(inicial[1])
+                    mensagem_media = float(calculo) / float(soma)
+                else:
+                    mensagem_media = 'Média incalculável.'
+            break
+
+    context = {'usuario': usuario, 'carro': carro, 'mensagem_media':mensagem_media, 'odometro_recente':odometro_recente, 'mensagem_oleo':mensagem_oleo
+               , 'despesas_totais_soma': despesas_totais_soma, 'despesas_abastecimentos_soma': despesas_abastecimetos_soma, 'abastecimentos': abastecimentos
+               ,'proxima_troca_oleo': proxima_troca_oleo, 'despesas_totais': despesas_totais}
+
+    return render(request, 'carro/exibir_dados.html',context)
