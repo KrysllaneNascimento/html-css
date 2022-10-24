@@ -21,6 +21,7 @@ class CustomModelFilter(forms.ModelChoiceField):
 
 class FormularioAbastecimento(forms.ModelForm):
     data = forms.DateField(widget=forms.TextInput(attrs={'type':'date'}))
+    completo = forms.BooleanField(widget=forms.CheckboxInput, required=False, initial=False, label='Encheu o tanque: ') 
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
@@ -72,6 +73,7 @@ class FormularioDespesas(forms.ModelForm):
 
 class FormularioTrocaOleo(forms.ModelForm):
     data = forms.DateField(widget=forms.TextInput(attrs={'type':'date'}))
+    filtro_oleo = forms.BooleanField(widget=forms.CheckboxInput, required=False, initial=False, label='Troca de óleo: ') 
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
@@ -93,3 +95,9 @@ class FormularioTrocaOleo(forms.ModelForm):
             carro.save()
         
         return km_atual
+
+
+
+ 
+
+
